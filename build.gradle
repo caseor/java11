@@ -1,0 +1,47 @@
+plugins {
+    id 'java-library'
+    id 'idea'
+}
+
+
+jar.enabled = false
+
+// 所有项目配置 包含根目录
+allprojects {
+    group 'org.casey'
+    version '1.0.0'
+    sourceCompatibility = 11
+    targetCompatibility = 11
+
+    // 配置仓库
+    repositories {
+        mavenLocal()
+        maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
+        maven { url 'http://maven.aliyun.com/nexus/content/repositories/jcenter' }
+    }
+}
+
+subprojects {
+    // 子模块要想复用插件必须apply
+    apply plugin: 'java-library'
+    apply plugin: 'idea'
+    //配置全局依赖版本信息
+    ext {
+        mapstructVersion = '1.4.1.Final'
+    }
+    dependencies {
+
+        annotationProcessor 'org.mapstruct:mapstruct:1.4.1.Final'
+        compileOnly 'org.mapstruct:mapstruct:1.4.1.Final'
+
+        annotationProcessor 'org.projectlombok:lombok:1.18.2'
+        compileOnly 'org.projectlombok:lombok:1.18.2'
+        implementation 'com.google.guava:guava:28.2-jre'
+        implementation 'cn.hutool:hutool-core:5.3.3'
+    }
+    configurations {
+
+    }
+}
+
+
