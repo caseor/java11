@@ -1,4 +1,4 @@
-package org.casey.java11.helloworld;
+package org.casey.java11.netty;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

@@ -1,3 +1,5 @@
 rootProject.name = 'java11'
 include 'java11-helloworld'
+include 'java11-quarkus'
+include 'java11-netty'
 
